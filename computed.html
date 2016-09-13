@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<fieldset class="scheduler-border">
+					<legend>Calculate Grade</legend>
+					<h1>{{ grade }}</h1>
+					<input v-model="points" >
+				</fieldset>
+			</div><br/>
+			<div>
+				<fieldset class="scheduler-border">
+					<legend>Full Name</legend>
+					<h1>{{ fullname }}</h1>
+					<input v-model="first" >
+					<input v-model="last" >
+				</fieldset>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"> </script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					points: 301,
+					first: 'sagar',
+					last: 'acharya'					
+				},
+				computed:{
+					grade: function(){
+						if(this.points <= 300){
+							return 'beginner';
+						}
+
+						return 'advanced';
+					},
+					fullname: function(){
+						return this.first + ' ' + this.last
+					}
+				}	
+			})
+		</script>
+	</body>
+</html>
