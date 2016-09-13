@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+	</head>
+	<body>
+		<div id="app">
+			<form>
+				<div class="alert alert-danger" v-show="!message">You must enter message!</div>
+				<textarea v-model="message"></textarea>
+				<button class="btn btn-primary" v-show="message">Save</button>
+			</form>
+			<pre>{{ $data | json }}</pre>
+		</div>	
+		<script type="text/javascript" src="js/vue.min.js"> </script>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					message:''
+				}
+			})
+		</script>
+	</body>
+</html>
