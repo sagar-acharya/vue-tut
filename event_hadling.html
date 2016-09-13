@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			fieldset.scheduler-border {
+			    border: 1px groove #ddd !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" class="col-md-3">
+			<fieldset class="scheduler-border">
+				<legend>Prevent Default: <h6>(Events: on submit)</h6></legend>
+				<form class="col-md-3" action="vue_show.html" v-on:submit.prevent="handleIt">
+					<button type="submit" class="btn btn-success">Submit</button>
+				</form>
+			</fieldset>
+			
+		</div>
+		<div id="app_count" class="col-md-3">
+			<fieldset class="scheduler-border">
+				<legend>Counter Increment: <h6>(Events: on submit & on click)</h6></legend>
+				<form class="col-md-3" action="vue_show.html" @submit.prevent="">
+					<button type="submit" class="btn btn-success" @click="updateCount">Click Me {{count}}</button>
+				</form>
+			</fieldset>
+			
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"> </script>
+		<script>
+			new Vue({
+				el:'#app',
+				methods:{
+					handleIt:function(){
+						alert(1);
+					}
+				}
+			})
+			new Vue({
+				el:'#app_count',
+				data:{
+					count:0
+				},
+				methods:{
+					updateCount:function(){
+						this.count +=1
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
