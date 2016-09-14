@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			.completed{
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1>Click on List Item to toggle <sub>converted_list_to_reusable_component</sub></h1>
+			<h6>View Page Soure For Details</h6>
+			<h6>OR</h6>
+			<h6>Refer git repo for code <a href="https://github.com/sagar-acharya/vue-tut" target="_blank">GITHUB</a></h6> 
+			<h6>Created External JS File to maintain Vue Code</h6>
+			<h5>Component 1</h5>
+			<my-tasks :lists="tasks"> </my-tasks>
+			<h5>Component 2</h5>
+			<my-tasks :lists="[{body:'New One', completed: false}]"> </my-tasks>
+		</div>
+		<template id="task-template">
+			<ul v-for="task in lists">
+				<li :class="{ 'completed': task.completed }" @click="task.completed = !task.completed">{{ task.body }} </li>
+			</ul>
+		</template>
+		<script type="text/javascript" src="js/vue.min.js"> </script>
+		<script type="text/javascript" src="js/convert_list_to_component.js"> </script>
+	</body>
+</html>
