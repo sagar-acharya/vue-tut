@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<style>
+			.completed{
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h1> Click on List Item to toggle </h1>
+			<h6>Created External JS File to maintain Vue Code</h6>
+			<ul v-for="task in tasks">
+				<li :class="{ 'completed': task.completed }" @click="task.completed = !task.completed">{{ task.body }} </li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/vue.min.js"> </script>
+		<script type="text/javascript" src="js/working_with_list.js"> </script>
+	</body>
+</html>
